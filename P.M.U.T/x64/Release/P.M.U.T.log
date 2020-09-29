@@ -1,0 +1,11 @@
+﻿  Command.cpp
+  Main.cpp
+  xCommand.cpp
+  xMain.cpp
+  Input.cpp
+C:\Users\sawye\Desktop\P.M.U.T\P.M.U.T\Source\Input.cpp(72,16): warning C4101: 'X': unreferenced local variable
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 680 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  P.M.U.T.vcxproj -> C:\Users\sawye\Desktop\P.M.U.T\x64\Release\P.M.U.T.exe

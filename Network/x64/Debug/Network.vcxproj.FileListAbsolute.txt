@@ -1,0 +1,2 @@
+C:\Users\sawye\Desktop\P.M.U.T\x64\Debug\HLnet.pdb
+C:\Users\sawye\Desktop\P.M.U.T\Network\x64\Debug\HLnet.pdb

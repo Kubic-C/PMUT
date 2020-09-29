@@ -1,0 +1,24 @@
+PMUT - INFO & COMMANDS
+
+This text is meant for build 55 of PMUT
+
+current commands :
+
+print -a[ x... ]- prints out a string of characters(just words)
+x... = how many words you want to put in there
+
+exit - exits PMUT safely; recommended for exiting PMUT, becuase it closes & cleans up the librarys PMUT uses
+
+print_shape -a[ x, y, z ]
+x - Width
+y - Height
+z - character
+
+get_version - gets the current version of PMUT
+
+start_timer - starts stop watch
+
+end_timer - ends stop watch
+
+EASTER EGG ALERT 
+Youtube is like my version of meth
