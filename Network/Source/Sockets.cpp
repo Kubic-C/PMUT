@@ -65,6 +65,15 @@ namespace HLnet
 		return Socket == INVALID_SOCKET;
 	}
 
+	void BaseSocket::PrintErrors()
+	{
+		for (Error& X : Errors)
+		{
+			std::cout << X.zError << " < " << X.Cause << " > \n";
+		}
+		Errors.clear();
+	}
+
 	WinsockError BaseSocket::Close()
 	{
 		return closesocket(Socket);
@@ -221,6 +230,16 @@ namespace HLnet
 		return Socket == Other.Socket;
 	}
 
+	void TCPSocket::operator=(TCPSocket Other)
+	{
+		Port = Other.Port;
+		closesocket(Socket);
+		Socket = Other.Socket;
+		Info4 = Other.Info4;
+		Info6 = Other.Info6;
+		Type = Other.Type;
+	}
+
 	bool TCPSocket::operator!=(TCPSocket Other)
 	{
 		return Socket != Other.Socket;
@@ -349,7 +368,7 @@ namespace HLnet
 	void ClientLeftMessage(TCPSocket& Socket, const CallInfoData<std::string>& Data)
 	{
 		int Port = 0;
-		std::cout << "Client< " <<
+		std::cout << "Client < " <<
 			"ip(v4): " << IPV4ntop(Socket.GetSockAddr().sin_addr) <<
 			", ip(v6): " << IPV6ntop(Socket.GetSockAddr6().sin6_addr) <<
 			", port: " << Socket.GetPort() <<
@@ -358,11 +377,11 @@ namespace HLnet
 
 	void ClientJoinedMessage(SOCKET Socket)
 	{
-		std::cout << "Socket < #" << Socket << "> joined!\n";
+		std::cout << "Socket < #" << Socket << " > joined!\n";
 	}
 
 	void ClientSentMessage(SOCKET Socket, std::string& ClientMessage)
 	{
-		std::cout << "Socket < #" << Socket << "> sent: " << ClientMessage << '\n';
+		std::cout << "Socket < #" << Socket << " > sent: " << ClientMessage << '\n';
 	}
 }

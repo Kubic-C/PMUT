@@ -29,7 +29,27 @@ namespace HLnet
 
 	void Set::Clear(const SOCKET& Socket)
 	{
-		FD_CLR(Socket, &this->FdSet);
+		do 
+		{
+			u_int __i; 
+			for (__i = 0; __i < ((fd_set FAR*)(&FdSet))->fd_count; __i++) 
+			{
+					
+				if (((fd_set FAR*)(&FdSet))->fd_array[__i] == Socket) 
+				{
+					((fd_set FAR*)(&FdSet))->fd_array[__i] = 0;
+					while (__i < ((fd_set FAR*)(&FdSet))->fd_count - 1)
+					{
+						
+							((fd_set FAR*)(&FdSet))->fd_array[__i] = ((fd_set FAR*)(&FdSet))->fd_array[__i + 1];
+							__i++; 
+					} 
+					((fd_set FAR*)(&FdSet))->fd_count--;
+					break; 
+				} 
+			} 
+		} while (0);
+
 	}
 
 	void Set::Add(const SOCKET& Socket)

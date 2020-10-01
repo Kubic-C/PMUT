@@ -87,8 +87,10 @@ namespace ConsoleParser
 
 namespace
 {
-	std::istream& GetLine(std::string& Input_)
+	std::istream& GetLine(std::string& Input_, HANDLE& Handle)
 	{
+
+		SetConsoleTextAttribute(Handle, 15 /*White*/);
 		std::cout << "[PMUT]";
 		return std::getline(std::cin, Input_);
 	}
@@ -97,6 +99,14 @@ namespace
 	void Print(const Params& ... Args)
 	{
 		((std::cout << Args), ... );
+	}
+
+	template<typename ... Params>
+	void PrintErr(HANDLE OutputHandle,const Params& ... Args)
+	{
+		SetConsoleTextAttribute(OutputHandle, FOREGROUND_RED | FOREGROUND_INTENSITY);
+		((std::cout << Args), ...);
+		SetConsoleTextAttribute(OutputHandle, 15 /*<- white*/);
 	}
 }
 

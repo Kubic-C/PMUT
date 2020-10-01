@@ -20,10 +20,11 @@
 
 namespace
 {
+	HANDLE OutputHandle = GetStdHandle(STD_OUTPUT_HANDLE);
 	inline void PMUT()
 	{
 		static std::string InputTerm;
-		while (GetLine(InputTerm))
+		while (GetLine(InputTerm, OutputHandle))
 		{
 			try
 			{
@@ -32,21 +33,22 @@ namespace
 					continue;
 
 				// Call it
+				SetConsoleTextAttribute(OutputHandle, FOREGROUND_GREEN);
 				Input Input_ = ConsoleParser::Parse(InputTerm);
 				Caller::CallCommand(Input_);
 
 			}// PMUT Errror vvv
 			catch (Error& x)
 			{
-				Print(x.zError, " < ", x.Cause, " >\n");
+				PrintErr(OutputHandle, x.zError, " < ", x.Cause, " >\n");
 			}// all other errors go below
 			catch (std::invalid_argument& x)
 			{
-				Print(x.what(), '\n');
+				PrintErr(OutputHandle, x.what(), '\n');
 			}
 			catch (std::bad_alloc& x)
 			{
-				Print(x.what(), '\n');
+				PrintErr(OutputHandle, x.what(), '\n');
 			}
 		}
 	}
@@ -60,7 +62,10 @@ namespace
 	void Start(WSAData*&& Data)
 	{
 		// vvv Info About PMUT vvv
+		SetConsoleTextAttribute(OutputHandle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
 		Print(PMUT_, '\n');
+		Print("Type 'info' to get some info about PMUT, & how to report bugs\n");
+		SetConsoleTextAttribute(OutputHandle, 15);
 
 		SetConsoleTitle(_T(std::string(PMUT_).c_str()));
 		AddCommand(CInitCmd, NO_ARGS, MakeSub("restart", "commands")); // Only exception when it comes to adding commands

@@ -12,7 +12,7 @@
 #define XCOMMAND_H
 
 #define BUILD_NUMBER (std::string)"58"
-#define PMUT_ "Porter Multi Use Terminal ( PMUT ) | Build[ " + BUILD_NUMBER + " ] | Creator : Sawyer Porter "
+#define PMUT_ "Porter Multi Use Terminal ( PMUT ) | Pre - Build[ " + BUILD_NUMBER + " ] | Creator : Sawyer Porter "
 
 #include "Input.h"
 #include "NHeaders/Include.h"

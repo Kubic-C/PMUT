@@ -29,6 +29,10 @@ namespace HLnet
 		// true if socket == INVALID_SOCKET
 		bool Bad();
 
+		// Print errors
+		void PrintErrors();
+
+
 		// Close the socket
 		WinsockError Close();
 
@@ -97,6 +101,8 @@ namespace HLnet
 		void PrintInfo();
 
 		bool operator==(TCPSocket Other);
+
+		void operator=(TCPSocket Other);
 
 		bool operator!=(TCPSocket Other);
 	};

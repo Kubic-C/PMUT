@@ -5,9 +5,13 @@
 #include "Sockets.h"
 #include "Sets.h"
 #include <WinUser.h>
+#include <thread>
+#include <shared_mutex>
 
 namespace HLnet
 {
+	static void ClientFrame(Set& MasterSet, TCPSocket Socket, std::shared_mutex& Lock, std::shared_ptr<bool> Done);
+
 	class TCPServer
 	{
 	public:
@@ -29,6 +33,16 @@ namespace HLnet
 		// Single Thread Run
 		void STRun();
 
+		// Multi-thread frame
+		void MTFrame();
+
+		// Main run of multi-thread
+		void MTRun();
+
+		void SetZero();
+
+		void operator=(const TCPServer& Other);
+
 		// Get TCPSocket
 		TCPSocket& GetTCPSocket() const;
 
@@ -37,6 +51,8 @@ namespace HLnet
 		TCPSocket ListenSocket;
 		Set Master;
 		timeval SelectTimer;
+		std::shared_mutex ThreadLock;
+		std::pair <std::vector <std::thread>, std::vector<std::shared_ptr<bool>>> Threads;
 	};
 }
 

@@ -65,7 +65,10 @@ namespace
 	CommandDecl(CClearScreen)
 	{
 		Print(CLEAR_SCREEN_STR);
+		HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(Handle, FOREGROUND_INTENSITY | FOREGROUND_RED | FOREGROUND_GREEN);
 		Print(PMUT_, '\n');
+		SetConsoleTextAttribute(Handle, 15);
 	}
 	// Prints PMUT_
 	CommandDecl(CGetVersion)
@@ -104,27 +107,47 @@ namespace
 	{
 		Print("To find a list of commands and what they do;\n",
 		      "refer to Help.txt provided with this copy of PMUT\n");
-		Print("\nIf any bug is found please report to");
+		Print("\nIf any bug is found please report to (PMUT's discord server->)https://discord.gg/maEbuVQ ");
 	}
 	// Make a tcp server, Name, Ip, Port, 
 	CommandDecl(CMakeTCPServer)
 	{
+		if (TCPServerMaster.find(Vector[2]) != TCPServerMaster.end())
+		{
+			TCPServerMaster[Vector[2]].SetZero();
+		}
+
+		Input Input_;
+		Input_.Arguments.insert(
+			Input_.Arguments.begin(),
+			Vector.begin(),
+			Vector.size() == 4 ? Vector.end() -  1 : Vector.end() ); // don't change last arguments
+		ConsoleParser::GetRidOfSpaces(Input_);
+
+		HANDLE Handle = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(Handle, FOREGROUND_RED | FOREGROUND_INTENSITY);
 		switch (Vector.size())
 		{
 		case 3:
-			TCPServerMaster[Vector[2]] = (HLnet::TCPServer(Vector[0], std::stoi(Vector[1])));
+			TCPServerMaster[Input_.Arguments[2]] 
+				= (HLnet::TCPServer(Input_.Arguments[0], std::stoi(Input_.Arguments[1])));
 			break;
 
 		case 4:
-			TCPServerMaster[Vector[2]] = (HLnet::TCPServer(Vector[0], std::stoi(Vector[1]), Vector[3]));
+			{
+				TCPServerMaster[Input_.Arguments[2]]
+					= (HLnet::TCPServer(Input_.Arguments[0], std::stoi(Input_.Arguments[1]), Vector[3]));
+			}
 			break;
 
 		default:
 			throw IllegalAmountOfArgs[Vector.size()];
 		}
-		Print("The server < " + Vector[2] + " > has successfully been created\n");
-	};
 
+		SetConsoleTextAttribute(Handle, FOREGROUND_GREEN);
+		Print("The server < " + Vector[2] + " > has been created\\overwritten\n");
+	};
+	// Run a tcp server
 	CommandDecl(CRunTCPServer)
 	{
 		if (Vector[0] == "single")
@@ -133,16 +156,22 @@ namespace
 				TCPServerMaster[Vector[1]].STRun();
 			else
 				goto Error;
-
-			return;
+		}
+		else if (Vector[0] == "multi")
+		{
+			if (TCPServerMaster.find(Vector[1]) != TCPServerMaster.end())
+				TCPServerMaster[Vector[1]].MTRun();
+			else
+				goto Error;
 		}
 		else
 			throw UnkownRunningType(Vector[0]);
 
+		return;
     Error:
 		throw UknownServer(Vector[1]);
 	}
-
+	// Print all tcp servers
 	CommandDecl(CPrintAllTCPServers)
 	{
 		for (auto const& Pair : TCPServerMaster)
@@ -151,7 +180,7 @@ namespace
 			Pair.second.GetTCPSocket().PrintInfo();
 		}
 	}
-
+	// Print a tcp server
 	CommandDecl(CPrintTCPServer)
 	{
 		if (TCPServerMaster.find(Vector[0]) != TCPServerMaster.end())
@@ -194,8 +223,9 @@ namespace
 		AddCommand(CTimerStart, NO_ARGS, "start_timer");
 		AddCommand(CTimerEnd, NO_ARGS, "end_timer");
 		AddCommand(CPrintYoutube, NO_ARGS, "my_meth");
-		AddCommand(CMakeTCPServer, 3, 4, MakeSub("make_server", "tcp"));
+		AddCommand(CMakeTCPServer, 3, 4, MakeSub("make_server", "tcp"), true);
 		AddCommand(CRunTCPServer, 2, MakeSub("run_server", "tcp"));
+		AddCommand(CInfoCommand, NO_ARGS, "info");
 		AddCommand(CPrintAllTCPServers, NO_ARGS, MakeSub("print", "tcp_server"));
 	}
 
@@ -223,7 +253,7 @@ namespace Caller
 
 	static void _NoSafetyCallCommand(Input& Input) // PMUT Caller
 	{
-		const int NeededAmountOfArgs = Master[Input.Command].GetLowArgValue();
+		const size_t NeededAmountOfArgs = Master[Input.Command].GetLowArgValue();
 		switch (NeededAmountOfArgs)
 		{
 		case NO_END_ARGS:
