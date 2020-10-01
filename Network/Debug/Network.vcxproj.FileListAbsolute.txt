@@ -1,2 +1,4 @@
 C:\Users\sawye\Desktop\P.M.U.T\Debug\HLnet.pdb
 C:\Users\sawye\Desktop\P.M.U.T\Network\Debug\HLnet.pdb
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\Debug\HLnet.pdb
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\Network\Debug\HLnet.pdb

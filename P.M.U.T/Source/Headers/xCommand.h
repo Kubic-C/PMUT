@@ -11,8 +11,8 @@
 #ifndef XCOMMAND_H
 #define XCOMMAND_H
 
-#define BUILD_NUMBER (std::string)"55"
-#define PMUT_ "Porter Multi Use Terminal ( PMUT ) | Build[ " + BUILD_NUMBER + " ] "
+#define BUILD_NUMBER (std::string)"58"
+#define PMUT_ "Porter Multi Use Terminal ( PMUT ) | Build[ " + BUILD_NUMBER + " ] | Creator : Sawyer Porter "
 
 #include "Input.h"
 #include "NHeaders/Include.h"
@@ -37,16 +37,19 @@ class Command
 public:
 
 	Command() = default;
-	Command(CmdType Function_, const int& Args_, const bool& NoEditToArgs_ = false);
+	Command(CmdType Function_, const size_t& Args_, const bool& NoEditToArgs_ = false);
+	Command(CmdType Function_, const size_t& LowArg_, const size_t& HighArg_, const bool& NoEditToArgs_ = false);
 	~Command();
 
 	void operator()(std::vector<std::string>& Vec = Empty);
-	int GetNeededArgs() const;
+	size_t GetLowArgValue() const;
+	size_t GetHighArgValue() const;
 	bool GetNoEditToArgs() const;
 
 private:
 	CmdType Function;
-	int NeededArgs;
+	size_t LowArgValue;
+	size_t HighArgValue;
 	bool NoEditToArgs;
 };
 

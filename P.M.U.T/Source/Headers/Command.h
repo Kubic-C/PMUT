@@ -4,7 +4,7 @@
 
 #include "xCommand.h"
 
-#define MakeSub(Command_, Type_) SUB_FUNC_TYPE + std::string(Command_) + "T" + std::string(Type_) 
+#define MakeSub(Command_, Type_) SUB_FUNC_TYPE + std::string(Command_) + "-t=" + std::string(Type_) 
 
 namespace
 {
@@ -17,6 +17,8 @@ namespace
 	std::unordered_map<std::string, Command> Master;
 	// Timer varible
 	std::chrono::steady_clock::time_point* CTimerStart_ = nullptr;
+	// Vector for TCP Server
+	std::map<std::string, HLnet::TCPServer>  TCPServerMaster;
 
 	// Prints out a vector
 	CommandDecl(CPrint)
@@ -104,6 +106,59 @@ namespace
 		      "refer to Help.txt provided with this copy of PMUT\n");
 		Print("\nIf any bug is found please report to");
 	}
+	// Make a tcp server, Name, Ip, Port, 
+	CommandDecl(CMakeTCPServer)
+	{
+		switch (Vector.size())
+		{
+		case 3:
+			TCPServerMaster[Vector[2]] = (HLnet::TCPServer(Vector[0], std::stoi(Vector[1])));
+			break;
+
+		case 4:
+			TCPServerMaster[Vector[2]] = (HLnet::TCPServer(Vector[0], std::stoi(Vector[1]), Vector[3]));
+			break;
+
+		default:
+			throw IllegalAmountOfArgs[Vector.size()];
+		}
+		Print("The server < " + Vector[2] + " > has successfully been created\n");
+	};
+
+	CommandDecl(CRunTCPServer)
+	{
+		if (Vector[0] == "single")
+		{
+			if (TCPServerMaster.find(Vector[1]) != TCPServerMaster.end())
+				TCPServerMaster[Vector[1]].STRun();
+			else
+				goto Error;
+
+			return;
+		}
+		else
+			throw UnkownRunningType(Vector[0]);
+
+    Error:
+		throw UknownServer(Vector[1]);
+	}
+
+	CommandDecl(CPrintAllTCPServers)
+	{
+		for (auto const& Pair : TCPServerMaster)
+		{
+			Print(Pair.first, " ");
+			Pair.second.GetTCPSocket().PrintInfo();
+		}
+	}
+
+	CommandDecl(CPrintTCPServer)
+	{
+		if (TCPServerMaster.find(Vector[0]) != TCPServerMaster.end())
+			TCPServerMaster[Vector[0]].GetTCPSocket().PrintInfo();
+		else
+			throw UknownServer(Vector[0]);
+	}
 
 	// Adds a command to Master command list
 	void AddCommand(
@@ -115,11 +170,23 @@ namespace
 		Master[String] = Command(Func_, AmountOfArgs, NoEditToInput);
 	}
 
+	// Adds a command to Master command list
+	void AddCommand(
+		const CmdType& Func_,
+		const int& LowArg_,
+		const int& HighArg_,
+		const std::string& String,
+		const bool& NoEditToInput = false)
+	{
+		Master[String] = Command(Func_, LowArg_, HighArg_, NoEditToInput);
+	}
+
 	// Adds all commands to the unordered_map
 	void CommandStart()
 	{
 		// Basic commands
 		AddCommand(CExit, NO_ARGS, "exit");
+		AddCommand(CExit, NO_ARGS, "q");
 		AddCommand(CClearScreen, NO_ARGS, "clear");
 		AddCommand(CPrint, NO_END_ARGS, "print", true);
 		AddCommand(CGetVersion, NO_ARGS, "get_version");
@@ -127,6 +194,9 @@ namespace
 		AddCommand(CTimerStart, NO_ARGS, "start_timer");
 		AddCommand(CTimerEnd, NO_ARGS, "end_timer");
 		AddCommand(CPrintYoutube, NO_ARGS, "my_meth");
+		AddCommand(CMakeTCPServer, 3, 4, MakeSub("make_server", "tcp"));
+		AddCommand(CRunTCPServer, 2, MakeSub("run_server", "tcp"));
+		AddCommand(CPrintAllTCPServers, NO_ARGS, MakeSub("print", "tcp_server"));
 	}
 
 	// Reinitialize
@@ -143,45 +213,48 @@ namespace
 // PMUT Caller, responsible for calling and passing arguments to functions based on input from the terminal
 namespace Caller
 {
+	static std::vector<std::string>& RemoveSpaces(Input& Input_, bool RemoveSpaces)
+	{
+		if (RemoveSpaces)
+			ConsoleParser::GetRidOfSpaces(Input_);
+
+		return Input_.Arguments;
+	}
+
 	static void _NoSafetyCallCommand(Input& Input) // PMUT Caller
 	{
-		const int NeededAmountOfArgs = Master[Input.Command].GetNeededArgs();
+		const int NeededAmountOfArgs = Master[Input.Command].GetLowArgValue();
 		switch (NeededAmountOfArgs)
 		{
 		case NO_END_ARGS:
-			Input.PrepareFuncArgs(!Master[Input.Command].GetNoEditToArgs()); // Preparing function arguments
-			Master[Input.Command](Input.FuncArgs);
+			Master[Input.Command](RemoveSpaces(Input, !Master[Input.Command].GetNoEditToArgs()));
 			return;
 
 		case NO_ARGS:
-			Input.PrepareFuncArgs(false ,false); // Preparing function arguments
-			Master[Input.Command](Input.FuncArgs);  
+			Master[Input.Command]();
 			return;
 
 		default:
 			break;
 		}
-		// prepare function args
-		Input.PrepareFuncArgs(!Master[Input.Command].GetNoEditToArgs());
 
 		// Check if the user put in the reqiured amount of arguments
-		size_t UserAmountOfArgs = Input.Args.size();
-		if (NeededAmountOfArgs != UserAmountOfArgs)
+		size_t UserAmountOfArgs = Input.Arguments.size();
+		if (Master[Input.Command].GetLowArgValue() > UserAmountOfArgs || Master[Input.Command].GetHighArgValue() < UserAmountOfArgs)
 			throw AmountOfArgumentsNotEqual[UserAmountOfArgs];
 
-		Master[Input.Command](Input.FuncArgs);
+		Master[Input.Command](RemoveSpaces(Input, !Master[Input.Command].GetNoEditToArgs()));
 	}
 
 	static void CallCommand(Input& Input)
 	{
-		Input.SetCommand();
 		if (Master.find(Input.Command) != Master.end())
 		{
 			// Safety added becuase of check ^^^
 			Caller::_NoSafetyCallCommand(Input);
 		}
 		else
-			throw InvalidCmd("-c : " + Input.CommandCopy + " -t : " + Input.Type);
+			throw InvalidCmd(Input.Command);
 	}
 }
 

@@ -1,7 +1,12 @@
 #include "Headers/xCommand.h"
 
-Command::Command(CmdType Function_, const int& Args_, const bool& NoEditToArgs_)
-	: Function(Function_), NeededArgs(Args_), NoEditToArgs(NoEditToArgs_)
+Command::Command(CmdType Function_, const size_t& Args_, const bool& NoEditToArgs_)
+	: Function(Function_), LowArgValue(Args_), HighArgValue(Args_), NoEditToArgs(NoEditToArgs_)
+{
+}
+
+Command::Command(CmdType Function_, const size_t& LowArg_, const size_t& HighArg_, const bool& NoEditToArgs_)
+	: Function(Function_), LowArgValue(LowArg_), HighArgValue(HighArg_), NoEditToArgs(NoEditToArgs_)
 {
 }
 
@@ -14,9 +19,14 @@ void Command::operator()(std::vector<std::string>& Vec)
 	Function(Vec);
 }
 
-int Command::GetNeededArgs() const
+size_t Command::GetLowArgValue() const
 {
-	return NeededArgs;
+	return LowArgValue;
+}
+
+size_t Command::GetHighArgValue() const
+{
+	return HighArgValue;
 }
 
 bool Command::GetNoEditToArgs() const

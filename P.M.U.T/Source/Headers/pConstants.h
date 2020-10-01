@@ -31,6 +31,7 @@
 #define SUB_FUNC_TYPE '\006'
 
 #include <unordered_map>
+#include <map>
 #include <chrono>
 
 #endif

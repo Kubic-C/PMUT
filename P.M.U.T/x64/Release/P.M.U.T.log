@@ -1,11 +1,7 @@
-﻿  Command.cpp
-  Main.cpp
-  xCommand.cpp
-  xMain.cpp
-  Input.cpp
-C:\Users\sawye\Desktop\P.M.U.T\P.M.U.T\Source\Input.cpp(72,16): warning C4101: 'X': unreferenced local variable
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (Network.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 680 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  7 of 1031 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    34 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  P.M.U.T.vcxproj -> C:\Users\sawye\Desktop\P.M.U.T\x64\Release\P.M.U.T.exe
+  P.M.U.T.vcxproj -> C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\x64\Release\P.M.U.T.exe

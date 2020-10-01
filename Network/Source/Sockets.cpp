@@ -14,10 +14,10 @@ namespace HLnet
 
 	inline void BaseSocket::_ZeroMembers()
 	{
-		memset(&Socket, 0, sizeof(Socket));
-		memset(&Info4 , 0, sizeof(Info4));
-		memset(&Info6 , 0, sizeof(Info6));
-		memset(&Type  , 0, sizeof(Type));
+		Socket = SOCKET();
+		Info4 = sockaddr_in();
+		Info6 = sockaddr_in6();
+		Type = 0;
 	}
 
 	inline void BaseSocket::SetSocket(const std::string& Ip, const int& Port)
@@ -26,7 +26,7 @@ namespace HLnet
 
 		// Make socket
 		this->Type = (int)HLnet::GetTypeFromString(Ip);
-		Socket = socket(Type, SOCK_STREAM, 0);
+		this->Socket = socket(Type, SOCK_STREAM, 0);
 		if (Socket == INVALID_SOCKET)
 		{
 			Errors.push_back(
@@ -38,26 +38,31 @@ namespace HLnet
 		SetSockAddr(Ip, Port);
 	}
 
-	inline void BaseSocket::SetSockAddr(const std::string& Ip, const int& Port)
+	inline void BaseSocket::SetSockAddr(const std::string& Ip, const int& Port_)
 	{
-		IPVersion Type_ = GetTypeFromString(Ip);
-		switch (Type)
+		switch (this->Type)
 		{
 		case (int)IPVersion::_4:
-			Info4.sin_family = Type;
-			Info4.sin_port = htons(Port);
-			inet_pton(Type, Ip.c_str(), (void*)&Info4.sin_addr);
+			Info4.sin_family = this->Type;
+			Info4.sin_port = htons(Port_), this->Port = Port_;
+			inet_pton(this->Type, Ip.c_str(), (void*)&this->Info4.sin_addr);
 			break;
 
 		case (int)IPVersion::_6:
-			Info6.sin6_family = Type;
-			Info6.sin6_port = htons(Port);
-			inet_pton(Type, Ip.c_str(), (void*)&Info6.sin6_addr);
+			Info6.sin6_family = this->Type;
+			Info6.sin6_port = htons(Port_), this->Port = Port_;
+			inet_pton(this->Type, Ip.c_str(), (void*)&this->Info6.sin6_addr);
 			break;
 
 		default:
 			Errors.push_back(UnknownError);
 		}
+
+	}
+
+	bool BaseSocket::Bad()
+	{
+		return Socket == INVALID_SOCKET;
 	}
 
 	WinsockError BaseSocket::Close()
@@ -65,7 +70,7 @@ namespace HLnet
 		return closesocket(Socket);
 	}
 
-	SOCKET BaseSocket::GetSocket()
+	SOCKET& BaseSocket::GetSocket()
 	{
 		return this->Socket;
 	}
@@ -78,6 +83,11 @@ namespace HLnet
 	sockaddr_in6 BaseSocket::GetSockAddr6()
 	{
 		return this->Info6;
+	}
+
+	int BaseSocket::GetPort()
+	{
+		return Port;
 	}
 
 	int& BaseSocket::GetIPV()
@@ -130,8 +140,6 @@ namespace HLnet
 
 	TCPSocket::~TCPSocket()
 	{
-		closesocket(Socket);
-		Socket = INVALID_SOCKET;
 	}
 
 	WinsockError TCPSocket::Bind()
@@ -179,7 +187,7 @@ namespace HLnet
 
 	SOCKET TCPSocket::Accept(sockaddr* Addr, int* Size)
 	{
-		return accept(Socket, Addr, Size);
+		return NetCall(accept(Socket, Addr, Size));
 	}
 
 	SOCKET TCPSocket::Accept()
@@ -199,6 +207,13 @@ namespace HLnet
 		Info_.Log.emplace_back(recv(Socket, &Buffer[0], SizeOfBuffer, 0));
 		Info_.Data = std::string().append(Buffer.cbegin(), Buffer.cend());
 		return Info_;
+	}
+
+	void TCPSocket::PrintInfo()
+	{
+		std::cout << /*Name from c*/ "Ip(v4): " << IPV4ntop(Info4.sin_addr) << 
+			", Ip(v6): " << IPV6ntop(Info6.sin6_addr) << 
+			", port: " << Port << '\n';
 	}
 
 	bool TCPSocket::operator==(TCPSocket Other)
@@ -238,8 +253,6 @@ namespace HLnet
 
 	UDPSocket::~UDPSocket()
 	{
-		closesocket(Socket);
-		Socket = INVALID_SOCKET;
 	}
 
 	void UDPSocket::Bind()
@@ -331,5 +344,25 @@ namespace HLnet
 	bool UDPSocket::operator!=(UDPSocket Other)
 	{
 		return Socket != Other.Socket;
+	}
+
+	void ClientLeftMessage(TCPSocket& Socket, const CallInfoData<std::string>& Data)
+	{
+		int Port = 0;
+		std::cout << "Client< " <<
+			"ip(v4): " << IPV4ntop(Socket.GetSockAddr().sin_addr) <<
+			", ip(v6): " << IPV6ntop(Socket.GetSockAddr6().sin6_addr) <<
+			", port: " << Socket.GetPort() <<
+			" > Left the connection( " << Data.Log[0] << " ) " << '\n';
+	}
+
+	void ClientJoinedMessage(SOCKET Socket)
+	{
+		std::cout << "Socket < #" << Socket << "> joined!\n";
+	}
+
+	void ClientSentMessage(SOCKET Socket, std::string& ClientMessage)
+	{
+		std::cout << "Socket < #" << Socket << "> sent: " << ClientMessage << '\n';
 	}
 }

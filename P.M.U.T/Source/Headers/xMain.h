@@ -7,6 +7,7 @@
 #define XMAIN_H
 
 #include "Command.h"
+#include <tchar.h>
 
 // MISSING INCLUDE; NOTIFY
 #ifndef XCOMMAND_H
@@ -21,17 +22,18 @@ namespace
 {
 	inline void PMUT()
 	{
-		static Input Input;
-		while (GetLine(Input))
+		static std::string InputTerm;
+		while (GetLine(InputTerm))
 		{
 			try
 			{
 				// Make sure the source(user's input) is not just a bunch of spaces or nothing
-				if (!Input.SourceGood())
+				if (InputTerm.find_first_not_of(' ') == std::string::npos)
 					continue;
 
 				// Call it
-				Caller::CallCommand(Input);
+				Input Input_ = ConsoleParser::Parse(InputTerm);
+				Caller::CallCommand(Input_);
 
 			}// PMUT Errror vvv
 			catch (Error& x)
@@ -46,9 +48,13 @@ namespace
 			{
 				Print(x.what(), '\n');
 			}
-
-			Input.Clear(); // Clear input buffers
 		}
+	}
+
+
+	void End()
+	{
+		HLnet::NetworkCleanup();
 	}
 
 	void Start(WSAData*&& Data)
@@ -56,14 +62,15 @@ namespace
 		// vvv Info About PMUT vvv
 		Print(PMUT_, '\n');
 
-		AddCommand(CInitCmd, NO_ARGS, MakeSub("restart", "commands")); // Only exception when it comes to add commands
+		SetConsoleTitle(_T(std::string(PMUT_).c_str()));
+		AddCommand(CInitCmd, NO_ARGS, MakeSub("restart", "commands")); // Only exception when it comes to adding commands
 		CommandStart();
-		HLnet::NetworkStartup(std::forward<WSAData*>(Data));
-	}
-
-	void End()
-	{
-		HLnet::NetworkCleanup();
+		int Good = HLnet::NetworkStartup(std::forward<WSAData*>(Data));
+		if (Good != 0)
+		{
+			Print("Failed to start Winsock2\n");
+			End();
+		}
 	}
 }
 

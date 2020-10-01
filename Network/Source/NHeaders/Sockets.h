@@ -26,17 +26,23 @@ namespace HLnet
 		// Set SockAddr or SockAddr6(depends on param Ip)
 		inline void SetSockAddr(const std::string& Ip, const int& Port);
 
+		// true if socket == INVALID_SOCKET
+		bool Bad();
+
 		// Close the socket
 		WinsockError Close();
 
 		// Gets sockets
-		SOCKET GetSocket();
+		SOCKET& GetSocket();
 
 		// Gets Info4
 		sockaddr_in GetSockAddr();
 
 		// Gets INnfo6
 		sockaddr_in6 GetSockAddr6();
+
+		// Get port
+		int GetPort();
 
 		// Gets the currentyl used type
 		int& GetIPV();
@@ -45,10 +51,12 @@ namespace HLnet
 
 		bool operator!=(BaseSocket Other);
 
+
 	protected:
 		SOCKET Socket;  // Socket
 		sockaddr_in Info4;  // Info about Socket
 		sockaddr_in6 Info6; // Info about Socket6
+		int Port = 0;
 		int Type; // Which sockaddr Socket(member) is using
 	};
 
@@ -85,6 +93,8 @@ namespace HLnet
 
 		// Recv data from a socket
 		CallInfoData<std::string> Recv(const int& SizeOfBuffer = 100);
+
+		void PrintInfo();
 
 		bool operator==(TCPSocket Other);
 
@@ -132,6 +142,9 @@ namespace HLnet
 		bool operator!=(UDPSocket Other);
 	};
 
+	void ClientLeftMessage(TCPSocket& Socket, const CallInfoData<std::string>& Data);
+	void ClientJoinedMessage(SOCKET Socket);
+	void ClientSentMessage(SOCKET Socket, std::string& ClientMessage);
 }
 
 #endif // SOCKETS_H

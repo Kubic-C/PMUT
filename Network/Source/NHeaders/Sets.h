@@ -12,7 +12,9 @@ namespace HLnet
 		typedef SOCKET* iterator;
 		typedef const SOCKET* const_iterator;
 
-		Set();
+		Set();	
+		Set(const fd_set& Set);
+		Set(Set& Other);
 
 		// FD_ZERO(FdSet)
 		void Zero();
@@ -31,6 +33,8 @@ namespace HLnet
 		const_iterator end() const { return &FdSet.fd_array[FdSet.fd_count]; };
 
 		fd_set& GetFdSet();
+
+		fd_set* GetFdSetPtr();
 
 	private:
 		fd_set FdSet;

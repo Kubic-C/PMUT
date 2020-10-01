@@ -8,87 +8,89 @@
 // Handling the user input from console
 struct Input
 {
-	// Note: Ter OR Term is short for terminal
-
-	// Source, String from terminal/console
-	std::string Source; 
-
-	// Type
-	std::string Type;
-
-	// Command
+	std::vector<std::string> Arguments;
 	std::string Command;
-	std::string CommandCopy; // For errors 
+};
 
-	// Argument List
-	std::vector<std::string> Args;
-
-	// Function args
-	std::vector<std::string> FuncArgs;
-
-	// Arguments Stream
-	// std::stringstream ArgStream;
-
-	Input();
-
-	Input(const std::string& Source_);
-
-	// Get part of a vec safely
-	std::string GetSafe(std::vector<std::string> VStr, const size_t& Index);
-
-	// Splits source
-	std::vector<std::string> _Split(
-		const std::string& Start,
-		const std::string& Delim,
-		const int& EndAmount) const;
-
-	// Sets member: Type
-	void SetType();
-
-	// Sets member: Command
-	void SetCommand();
-
-	// Sets member: Args(from console)
-	void SetArgs(bool NoSpaces = true);
-
-	// Sets all members
-	void SetAll();
-
-	// Clears All
-	void Clear();
-
-	// Checks if the user put nothing
-	bool SourceGood() const;
-
-	// returns true if : the -a[ and the ] are present in the console
-	inline size_t TermArgsGood();
-
-	// Copys the string arg from console to 
-	inline void CopyArgsFromTerm(std::string& Str, size_t&& Index);
-
-	// Set the arguments from Str
-	inline void _SetArgsImpl(std::string& Str, bool&& NoSpaces = true);
-
-	// Prepare FuncArgs
-	inline void PrepareFuncArgs(const bool& NoEditToArgs = false, const bool& SetArgs_ = true)
+namespace ConsoleParser 
+{
+	static Input Parse(std::string& Source)
 	{
-		if (SetArgs_)
+		Input Final;
+
+		// Parsing for command
+		for (char& Char : Source) // Get the command
 		{
-			SetArgs(NoEditToArgs);
-			FuncArgs.reserve(Args.size());
-			FuncArgs.insert(FuncArgs.end(), Args.begin(), Args.end());
+			if (Char != ' ')
+				Final.Command += Char;
+			else
+				goto TYPE_PARSING;
 		}
+
+	TYPE_PARSING:
+		// Parsing for Type
+		size_t TIndex = Source.find(TYPE_QUALIFIER);
+		if (TIndex == std::string::npos)
+			goto ARGUMENT_PARSING;
+		// -t or type qualifier exist
+		if (TIndex + 3 >= Source.size())
+			throw TheInputGivenWasNotBigEnough[TIndex];
+
+		Final.Command = SUB_FUNC_TYPE + Final.Command + "-t=";
+		for (size_t I = TIndex + 3; I < Source.size(); I++)
+		{
+			if (Source[I] != ' ')
+				Final.Command += Source[I];
+			else
+				goto ARGUMENT_PARSING;
+		}
+
+
+	ARGUMENT_PARSING:
+		size_t ArgumentStart = Source.find(ARG_STATMENT);
+		size_t ArgumentEnd = Source.find(ARG_END);
+		if (ArgumentStart == std::string::npos)
+			return Final; // skip the rest of argument parsing
+		else if (ArgumentEnd == std::string::npos)
+			throw CouldNotFindStr[ARG_END]; // Argument statment exists but argument end does not exist
+		if (ArgumentEnd < ArgumentStart)
+			throw EndingBeforeStart[ARG_END];
+		// Arguments are good to be parsed
+		std::string Argument;
+		ArgumentStart += 3;
+		for (/* not needed*/; ArgumentStart < ArgumentEnd; ArgumentStart++)
+		{
+			if (Source[ArgumentStart] == ARG_SEPERATOR)
+			{
+				Final.Arguments.push_back(Argument); // Push back argument
+				Argument.clear();
+			}
+			else
+			{
+				Argument += Source[ArgumentStart];
+			}
+		}
+
+		Final.Arguments.push_back(Argument); // To get the last argument
+
+		return Final;
 	}
 
-	std::string operator[](const int& Index);
-};
+	static void GetRidOfSpaces(Input& Input_)
+	{
+		for (std::string& Str : Input_.Arguments)
+		{
+			Str.erase(std::remove(Str.begin(), Str.end(), ' '), Str.end());
+		}
+	}
+}
 
 namespace
 {
-	std::istream& GetLine(Input& Input_)
+	std::istream& GetLine(std::string& Input_)
 	{
 		std::cout << "[PMUT]";
-		return std::getline(std::cin, Input_.Source);
+		return std::getline(std::cin, Input_);
 	}
 
 	template<typename ... Params>

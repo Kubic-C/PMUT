@@ -1,5 +1,19 @@
-﻿  Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 681 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+﻿  Command.cpp
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\P.M.U.T\Source\Headers\Command.h(220,46): warning C4018: '>': signed/unsigned mismatch
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\P.M.U.T\Source\Headers\Command.h(220,108): warning C4018: '<': signed/unsigned mismatch
+  Input.cpp
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\P.M.U.T\Source\Input.cpp(72,16): warning C4101: 'X': unreferenced local variable
+  Main.cpp
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\P.M.U.T\Source\Headers\Command.h(220,46): warning C4018: '>': signed/unsigned mismatch
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\P.M.U.T\Source\Headers\Command.h(220,108): warning C4018: '<': signed/unsigned mismatch
+  xCommand.cpp
+  xMain.cpp
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\P.M.U.T\Source\Headers\Command.h(220,46): warning C4018: '>': signed/unsigned mismatch
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\P.M.U.T\Source\Headers\Command.h(220,108): warning C4018: '<': signed/unsigned mismatch
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (Release\) contains files shared from another project (Network.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Generating code
+  577 of 1030 functions (56.0%) were compiled, the rest were copied from previous compilation.
+    351 functions were new in current compilation
+    141 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  P.M.U.T.vcxproj -> C:\Users\sawye\Desktop\P.M.U.T\Release\P.M.U.T.exe
+  P.M.U.T.vcxproj -> C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\Release\P.M.U.T.exe

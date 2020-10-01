@@ -15,6 +15,11 @@ namespace
 	Error GenericError               ("Generic Error", "");
 	Error IncorrectArgumentStatment("Incorrect argument statement", ""); 
 	Error TimerNotStarted          ("Timer has not been started", "");
+	Error UnkownRunningType  ("Uknown running type", "");
+	Error UknownServer("Uknown server name", "");
+	Error IllegalAmountOfArgs("Illegal amount of args passed to function", "");
+	Error TypeQualifierNoType("The type qualifier was in the input, but no type was given","");
+	Error TheInputGivenWasNotBigEnough("The input given was not big enough", "");
 }
 
 #endif // ERROR_H
