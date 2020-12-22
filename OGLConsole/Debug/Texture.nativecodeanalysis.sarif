@@ -1,0 +1,1703 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "C26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '*' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '*' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                },
+                "region": {
+                  "startLine": 1837,
+                  "startColumn": 34,
+                  "endLine": 1837,
+                  "endColumn": 55
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?stbi__hdr_to_ldr@@YAPAEPAMHHH@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C6011",
+          "message": {
+            "text": "Dereferencing NULL pointer 'y'. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                },
+                "region": {
+                  "startLine": 3941,
+                  "startColumn": 59,
+                  "endLine": 3941,
+                  "endColumn": 71
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?load_jpeg_image@@YAPAEPAUstbi__jpeg@@PAH11H@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "index": 0,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3789,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 1,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3789,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 2,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3789,
+                            "startColumn": 22
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 3,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3790,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 4,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3793,
+                            "startColumn": 22
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 5,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3796,
+                            "startColumn": 9
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 6,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3799,
+                            "startColumn": 7
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 7,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3801,
+                            "startColumn": 12
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 8,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3803,
+                            "startColumn": 35
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 9,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3806,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 10,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3810,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 11,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3811,
+                            "startColumn": 22
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 12,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3811,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 13,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3812,
+                            "startColumn": 18
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 14,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3813,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 15,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3815,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 16,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3817,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 17,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3817,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 18,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3840,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 19,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3841,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 20,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3844,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 21,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3844,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 22,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3845,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 23,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3846,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 24,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3846,
+                            "startColumn": 27
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 25,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3860,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 26,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3909,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 27,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3920,
+                            "startColumn": 43
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 28,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3931,
+                            "startColumn": 43
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 29,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3939,
+                            "startColumn": 28
+                          }
+                        },
+                        "message": {
+                          "text": "'y' may be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "index": 30,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3940,
+                            "startColumn": 27
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this branch, (assume 'n==1')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "index": 31,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3941,
+                            "startColumn": 32
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 32,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3941,
+                            "startColumn": 39
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this loop, (assume 'i<z->s->img_x')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "index": 33,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 3941,
+                            "startColumn": 66
+                          }
+                        },
+                        "message": {
+                          "text": "'y' is dereferenced, but may still be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26819",
+          "message": {
+            "text": "Unannotated fallthrough between switch labels (es.78)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                },
+                "region": {
+                  "startLine": 5637,
+                  "startColumn": 10
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?stbi__tga_get_comp@@YAHHHPAH@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C6308",
+          "message": {
+            "text": "'realloc' might return null pointer: assigning null pointer to '*delays', which is passed as an argument to 'realloc', will cause the original memory block to be leaked."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                },
+                "region": {
+                  "startLine": 6913,
+                  "startColumn": 41,
+                  "endLine": 6913,
+                  "endColumn": 41
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?stbi__load_gif_main@@YAPAXPAUstbi__context@@PAPAHPAH222H@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C6262",
+          "message": {
+            "text": "Function uses '34964' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                },
+                "region": {
+                  "startLine": 6873,
+                  "startColumn": 14,
+                  "endLine": 6873,
+                  "endColumn": 14
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?stbi__load_gif_main@@YAPAXPAUstbi__context@@PAPAHPAH222H@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C28182",
+          "message": {
+            "text": "Dereferencing NULL pointer. '*delays' contains the same NULL value as 'realloc()`6913' did. "
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                },
+                "region": {
+                  "startLine": 6931,
+                  "startColumn": 22,
+                  "endLine": 6931,
+                  "endColumn": 47
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?stbi__load_gif_main@@YAPAXPAUstbi__context@@PAPAHPAH222H@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "codeFlows": [
+            {
+              "threadFlows": [
+                {
+                  "locations": [
+                    {
+                      "index": 0,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6875,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 1,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6876,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 2,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6877,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 3,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6878,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 4,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6879,
+                            "startColumn": 16
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 5,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6880,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 6,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6881,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 7,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6882,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 8,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6883,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 9,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6884,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 10,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6885,
+                            "startColumn": 13
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 11,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6886,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 12,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6890,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 13,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6891,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 14,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6893,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 15,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6894,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 16,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6895,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 17,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6896,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 18,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6897,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 19,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6899,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 20,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6918,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 21,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6919,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 22,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6920,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 23,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6921,
+                            "startColumn": 33
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 24,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6922,
+                            "startColumn": 37
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 25,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6925,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 26,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6926,
+                            "startColumn": 28
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 27,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6930,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 28,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6931,
+                            "startColumn": 44
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 29,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6934,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 30,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6890,
+                            "startColumn": 15
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 31,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6891,
+                            "startColumn": 19
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 32,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6893,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 33,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6894,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 34,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6895,
+                            "startColumn": 20
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 35,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6896,
+                            "startColumn": 17
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 36,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6897,
+                            "startColumn": 24
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 37,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6899,
+                            "startColumn": 21
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 38,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6900,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 39,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6901,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 40,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6908,
+                            "startColumn": 29
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 41,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6909,
+                            "startColumn": 34
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 42,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6912,
+                            "startColumn": 25
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 43,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6913,
+                            "startColumn": 33
+                          }
+                        },
+                        "message": {
+                          "text": "'*delays' may be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "declaration"
+                      ],
+                      "importance": "essential"
+                    },
+                    {
+                      "index": 44,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6914,
+                            "startColumn": 37
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 45,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6925,
+                            "startColumn": 23
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 46,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6926,
+                            "startColumn": 28
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this branch, (assume 'layers>=2')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "index": 47,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6927,
+                            "startColumn": 30
+                          }
+                        }
+                      },
+                      "importance": "unimportant"
+                    },
+                    {
+                      "index": 48,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6930,
+                            "startColumn": 21
+                          }
+                        },
+                        "message": {
+                          "text": "Enter this branch, (assume 'delays')"
+                        }
+                      },
+                      "kinds": [
+                        "branch"
+                      ],
+                      "importance": "important"
+                    },
+                    {
+                      "index": 49,
+                      "location": {
+                        "physicalLocation": {
+                          "artifactLocation": {
+                            "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                          },
+                          "region": {
+                            "startLine": 6931,
+                            "startColumn": 44
+                          }
+                        },
+                        "message": {
+                          "text": "'*delays' is dereferenced, but may still be NULL"
+                        }
+                      },
+                      "kinds": [
+                        "usage"
+                      ],
+                      "importance": "essential"
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C6262",
+          "message": {
+            "text": "Function uses '34932' bytes of stack:  exceeds /analyze:stacksize '16384'.  Consider moving some data to heap."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                },
+                "region": {
+                  "startLine": 6953,
+                  "startColumn": 14,
+                  "endLine": 6953,
+                  "endColumn": 14
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?stbi__gif_load@@YAPAXPAUstbi__context@@PAH11HPAUstbi__result_info@@@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26819",
+          "message": {
+            "text": "Unannotated fallthrough between switch labels (es.78)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                },
+                "region": {
+                  "startLine": 7056,
+                  "startColumn": 14
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?stbi__hdr_convert@@YAXPAMPAEH@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        },
+        {
+          "ruleId": "C26819",
+          "message": {
+            "text": "Unannotated fallthrough between switch labels (es.78)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "file:///C:/Users/sawye/Development/PMUT/PMUT/OGLConsole/Source/OGLEngine/Headers/Depend/stb_image.h"
+                },
+                "region": {
+                  "startLine": 7059,
+                  "startColumn": 14
+                }
+              },
+              "logicalLocations": [
+                {
+                  "decoratedName": "?stbi__hdr_convert@@YAXPAMPAEH@Z",
+                  "kind": "function"
+                }
+              ]
+            }
+          ],
+          "suppressions": []
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.28.29334.0"
+        }
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29333\\bin\\HostX86\\x86\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00CDB1D0 -il C:\\Users\\sawye\\AppData\\Local\\Temp\\_CL_3402ffceast -typedil -f Source\\OGLEngine\\Texture.cpp -Ze -D_MSC_EXTENSIONS -Zp8 -Gs -pc \\:/ -D_MSC_VER=1928 -D_MSC_FULL_VER=192829334 -D_MSC_BUILD=0 -D_WIN32 -D_M_IX86=600 -D_M_IX86_FP=2 -GR -D_CPPRTTI -I C:\\Users\\sawye\\Development\\PMUT\\PMUT\\OGLConsole\\Source\\OGLHeaders -I C:\\Users\\sawye\\Development\\PMUT\\PMUT\\OpenGL\\GLFW\\include -I C:\\Users\\sawye\\Development\\PMUT\\PMUT\\OpenGL\\GLEW\\include -nologo -W 3 -diagnostics:column -D_GUARDOVERFLOW_CRT_ALLOCATORS=1 -Ot -DCODE_ANALYSIS -DWIN32 -D_DEBUG -D_LIB -D_UNICODE -DUNICODE -DGLEW_STATIC -EHs -D_CPPUNWIND -EHc -D__MSVC_RUNTIME_CHECKS -RTCs -RTCu -MDd -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -permissive- -Zc:wchar_t -Zc:forScope -std:c++17 -FoDebug\\Texture.obj -FdC:\\Users\\sawye\\Development\\PMUT\\PMUT\\Debug\\OGLConsole.pdb -Gd -analyze:projectdirectory C:\\Users\\sawye\\Development\\PMUT\\PMUT\\OGLConsole -analyze:rulesetdirectory ;C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\\\Rule Sets; -analyze:ruleset C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Team Tools\\Static Analysis Tools\\Rule Sets\\NativeRecommendedRules.ruleset -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29333\\bin\\HostX86\\x86\\EspXEngine.dll -FC -errorreport:prompt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29333\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Tools\\MSVC\\14.28.29333\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\ucrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.18362.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8\\Include\\um",
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglengine/engine.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglengine/headers/engine.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglengine/headers/program.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglheaders/pch/oglpch.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/opengl/glew/include/gl/glew.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/opengl/glfw/include/glfw/glfw3.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglengine/headers/shader.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglengine/headers/shaderparser.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglengine/headers/vertexobjects.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglengine/headers/texture.h"
+          },
+          "roles": [
+            "responseFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglengine/headers/depend/stb_image.h"
+          },
+          "roles": [
+            "resultFile"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglengine/vertexobjects.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ]
+        },
+        {
+          "location": {
+            "uri": "file:///c:/users/sawye/development/pmut/pmut/oglconsole/source/oglengine/texture.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ]
+        }
+      ]
+    }
+  ]
+}

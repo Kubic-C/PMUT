@@ -1,0 +1,77 @@
+//the pshader(pmut shader) file type is very simple, as it is used to fit multiple shaders in one file with simplicity.
+//the '@' character is where you put a section's name.
+//that section is now accessible from PMUT's pshader parser all you have to do is put the 
+//section's name in the parameter and you should get that section back in a form of a string,
+//but it is going to read the rest of the file, so to stop it 
+//you write/type the section's name(with the '@' character at begginning) 
+//and write/type a space with the word end.
+//look below to possibly more understand how to use it(talking to you reader)
+
+//                      file name                        section's name
+// parse_for_lines("console_shaders.pshader", "learn_opengl_texture_vertex_shader");
+
+// ------------------------------------
+@learn_opengl_texture_vertex_shader
+#version 330 core
+layout(location = 0) in vec3 aPos;
+layout(location = 1) in vec3 aColor;
+layout(location = 2) in vec2 aTexCoord;
+
+out vec3 ourColor;
+out vec2 TexCoord;
+
+void main()
+{
+    gl_Position = vec4(aPos, 1.0);
+    ourColor = aColor;
+    TexCoord = aTexCoord;
+}
+@learn_opengl_texture_vertex_shader end 
+// the parser stops here since the section's name is learn_opengl_texture_vertex_shader and the word "end" is after it
+// ------------------------------------
+@learn_opengl_texture_fragment_shader 
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+uniform sampler2D ourTexture;
+
+void main()
+{
+    FragColor = texture(ourTexture, TexCoord);
+}
+@learn_opengl_texture_fragment_shader end
+// ------------------------------------
+@vertex_shader_for_textures
+#version 330 core
+layout(location = 0) in vec3 aPos;
+layout(location = 1) in vec3 aColor;
+layout(location = 2) in vec2 aTexCoord;
+
+out vec3 ourColor;
+out vec2 TexCoord;
+
+void main()
+{
+    gl_Position = vec4(aPos, 1.0);
+    ourColor = aColor;
+    TexCoord = aTexCoord;
+}
+@vertex_shader_for_textures end
+// ------------------------------------
+@fragment_shader_for_textures
+#version 330 core
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+uniform sampler2D ourTexture;
+
+void main()
+{
+    FragColor = texture(ourTexture, TexCoord);
+}
+@fragment_shader_for_textures end

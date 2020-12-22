@@ -1,25 +1,56 @@
 #pragma once
-#ifndef ERROR_H
-#define ERROR_H
+#ifndef PMUT_ERROR_H
+#define PMUT_ERROR_H
 
-#include "xError.h"
+#include "base.h"
 
-namespace
+namespace pmut
 {
-	Error InvalidCmd        ("The command requested is not valid or cannot be ran", "");
-	Error InvalidArgs       ("The arguments passed where invalid", "");
-	Error CouldNotFindStr   ("Could not find", "");
-	Error EndingBeforeStart ("The ending statment was before the starting stament", "");
-	Error IllegalInput      ("Illegal input", "");
-	Error AmountOfArgumentsNotEqual  ("Too many, or not enough arguments where given", "");
-	Error GenericError               ("Generic Error", "");
-	Error IncorrectArgumentStatment("Incorrect argument statement", ""); 
-	Error TimerNotStarted          ("Timer has not been started", "");
-	Error UnkownRunningType  ("Uknown running type", "");
-	Error UknownServer("Uknown server name", "");
-	Error IllegalAmountOfArgs("Illegal amount of args passed to function", "");
-	Error TypeQualifierNoType("The type qualifier was in the input, but no type was given","");
-	Error TheInputGivenWasNotBigEnough("The input given was not big enough", "");
+	namespace errors
+	{
+		struct error
+		{
+			std::string error_;
+			std::string how = "";
+
+			error(std::string error_)
+				: error_(error_) {}
+
+			template<typename T>
+			error& operator()(T how)
+			{
+				set_how(how);
+				return *this;
+			}
+
+		private:
+			template<typename T>
+			void set_how(T how)
+			{
+				this->how = std::to_string(how);
+			}
+
+			void set_how(std::string how)
+			{
+				this->how = how;
+			}
+
+			void set_how(const char* how)
+			{
+				this->how = std::string(how);
+			}
+		};
+
+		ONE_DEF error uknown_option("uknown option");
+		ONE_DEF error uknown_command("uknown command");
+		ONE_DEF error no_seperator_found("no seperator found in option");
+		ONE_DEF error invalid_amount_of_options("invalid amount of options");
+		ONE_DEF error invalid_character_for_option("invalid character for option");
+		ONE_DEF error pmut_ct_error("a error has occurred in pmut-ct(PMUT's converion tree)");
+		ONE_DEF error no_terminating_end_character_found("no terminating option end character found");
+		ONE_DEF error invalid_postion_of_command_extractor_operators("invalid postion of command extractor operators");
+		ONE_DEF error cannot_call_a_command_already_active("cannot call another command becuase one is already active");
+	}
 }
 
-#endif // ERROR_H
+#endif //!PMUT_ERROR_H

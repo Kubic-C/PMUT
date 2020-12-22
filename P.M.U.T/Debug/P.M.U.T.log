@@ -1,7 +1,26 @@
-﻿  Command.cpp
-  Main.cpp
-  xMain.cpp
-  Generating Code...
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Network.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  LINK : C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\Debug\P.M.U.T.exe not found or not built by the last incremental link; performing full link
-  P.M.U.T.vcxproj -> C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\Debug\P.M.U.T.exe
+﻿  base.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\Users\sawye\Development\PMUT\PMUT\OpenGL\GLFW\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
+  main.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\Users\sawye\Development\PMUT\PMUT\OpenGL\GLFW\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
+  pmut.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\Users\sawye\Development\PMUT\PMUT\OpenGL\GLFW\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
+  window_input.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\Users\sawye\Development\PMUT\PMUT\OpenGL\GLFW\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
+  commands.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\Users\sawye\Development\PMUT\PMUT\OpenGL\GLFW\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
+  command_defintions.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(130,1): warning C4005: 'APIENTRY': macro redefinition
+C:\Users\sawye\Development\PMUT\PMUT\OpenGL\GLFW\include\GLFW\glfw3.h(123): message : see previous definition of 'APIENTRY'
+  base.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Generating code
+  Finished generating code
+OGLConsole.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'OGLConsole.lib(glew.obj)' or at 'C:\Users\sawye\Development\PMUT\PMUT\Debug\vc120.pdb'; linking object as if no debug info
+  P.M.U.T.vcxproj -> C:\Users\sawye\Development\PMUT\PMUT\Debug\P.M.U.T.exe

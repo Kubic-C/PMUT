@@ -1,0 +1,31 @@
+@texture_shader_vertex
+#version 330 core
+layout(location = 0) in vec3 aPos;
+layout(location = 1) in vec2 texcords_layout;
+
+out vec4 frag_color;
+out vec2 tex_cord;
+
+void main()
+{
+    gl_Position = vec4(aPos, 1.0);
+    frag_color = gl_Position;
+    tex_cord = texcords_layout;
+}
+@texture_shader_vertex end
+// - - -
+@texture_shader_fragment
+#version 330 core
+out vec4 FragColor;
+
+in vec4 frag_color;
+in vec2 tex_cord;
+
+uniform sampler2D our_texture;
+uniform vec4 cpu_color;
+
+void main()
+{
+    FragColor = texture(our_texture, tex_cord) * (frag_color * cpu_color);
+}
+@texture_shader_fragment end

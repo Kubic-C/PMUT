@@ -1,10 +1,11 @@
 ﻿  Command.cpp
   Main.cpp
+  xCommand.cpp
   xMain.cpp
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (Network.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   Generating code
-  57 of 1257 functions ( 4.5%) were compiled, the rest were copied from previous compilation.
-    4 functions were new in current compilation
-    84 functions had inline decision re-evaluated but remain unchanged
+  0 of 1313 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   P.M.U.T.vcxproj -> C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\x64\Release\P.M.U.T.exe

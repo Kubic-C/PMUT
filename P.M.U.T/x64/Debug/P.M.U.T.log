@@ -1,5 +1,17 @@
-﻿  Main.cpp
+﻿  Command.cpp
+  Main.cpp
+  xCommand.cpp
   xMain.cpp
+  Input.cpp
   Generating Code...
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (Network.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  P.M.U.T.vcxproj -> C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\x64\Debug\P.M.U.T.exe
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+Main.obj : error LNK2019: unresolved external symbol glfwInit referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwTerminate referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwCreateWindow referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwWindowShouldClose referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwPollEvents referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwMakeContextCurrent referenced in function main
+Main.obj : error LNK2019: unresolved external symbol glfwSwapBuffers referenced in function main
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\OpenGL\GLFW\lib-vc2019\glfw3.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\sawye\Desktop\P.M.U.T Git\PMUT\x64\Debug\P.M.U.T.exe : fatal error LNK1120: 7 unresolved externals
